@@ -1,0 +1,18 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] files = {1,2,3,4,2,1};
+
+        Set<Integer> seen = new HashSet<>();
+        Set<Integer> duplicates = new HashSet<>();
+
+        for (int file : files) {
+            if (!seen.add(file)) {
+                duplicates.add(file);
+            }
+        }
+
+        System.out.println("Duplicate nums: " + duplicates);
+    }
+}
