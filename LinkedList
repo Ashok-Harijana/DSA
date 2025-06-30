@@ -1,0 +1,59 @@
+import java.util.*;
+class Main{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        LinkedList<Integer> list=new LinkedList<>();
+        for(int i=0;i<n;i++){
+            list.add(sc.nextInt());
+        }
+        int target=sc.nextInt();
+        int i=1;
+        for(int j:list){
+           System.out.println("node "+i+" : "+j);
+           i++;
+        }
+        if(target>=1 && target<=n){
+            System.out.println("After deletion of target");
+            list.remove(target-1);
+            int s=1;
+            for(int j:list){
+                System.out.println("node "+s+" : "+j);
+                s++;
+            }
+        }else{
+            System.out.println("Invalid postion");
+        }
+    }
+}
+output:
+Input 1 :
+4
+1 2 3 4
+5
+Output 1 :
+Data entered in the list:
+node 1 : 1
+node 2 : 2
+node 3 : 3
+node 4 : 4
+Invalid position. Try again.
+Input 2 :
+6
+13 7 8 95 10 6
+2
+Output 2 :
+Data entered in the list:
+node 1 : 13
+node 2 : 7
+node 3 : 8
+node 4 : 95
+node 5 : 10
+node 6 : 6
+
+After deletion the new list:
+node 1 : 13
+node 2 : 8
+node 3 : 95
+node 4 : 10
+node 5 : 6
