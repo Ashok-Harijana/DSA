@@ -1,0 +1,61 @@
+import java.util.*;
+class GraphMatrix{
+    int [][]matrix;
+    String []vertices;
+    int size;
+    public GraphMatrix(int n){
+        matrix=new int[n][n];
+        vertices=new String[n];
+        size=0;
+    }
+    void addVertex(String label){
+        vertices[size++]=label;
+    }
+    void addEdge(String from,String to){
+        int i=indexOf(from);
+        int j=indexOf(to);
+        if(i!=-1&&j!=-1){
+            matrix[i][j]=1;
+            matrix[j][i]=1;
+        }
+    }
+    int indexOf(String label){
+        for(int i=0;i<size;i++){
+            if(vertices[i].equals(label))return i;
+        }
+        return -1;
+    }
+    void print(){
+        System.out.println(" ");
+        for(int i=0;i<size;i++)System.out.print(" "+vertices[i]);
+        System.out.println();
+        for(int i=0;i<size;i++){
+            System.out.print(vertices[i]+" ");
+        for(int j=0;j<size;j++){
+            System.out.print(matrix[i][j]+" ");
+        }
+        System.out.println();
+        }
+    }
+}
+class Main{
+    public static void main(String[]args){
+        
+        GraphMatrix g=new GraphMatrix(4);
+        g.addVertex("A");
+        g.addVertex("B");
+        g.addVertex("C");
+        g.addVertex("D");
+        g.addEdge("A","B");
+        g.addEdge("B","C");
+        g.addEdge("C","A");
+        g.addEdge("D","A");
+        g.print();
+    }
+}
+OUTPUT:
+   A  B  C  D  
+A  0  1  1  0  
+B  1  0  1  0  
+C  1  1  0  0  
+D  0  0  0  0  
