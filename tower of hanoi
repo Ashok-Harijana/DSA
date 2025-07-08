@@ -1,0 +1,19 @@
+import java.util.*;
+class Main{
+    public static void SolveTower(int n,char source,char destination,char auxillary){
+        if(n==1){
+            System.out.println("Move disk 1 from "+source+" to "+destination);
+            return;
+        }
+        SolveTower(n-1,source,auxillary,destination);
+        System.out.println("Move disk "+n+" from "+source+" to "+destination);
+        SolveTower(n-1,auxillary,destination,source);
+    }
+    public static void main(String []args){
+        int n=4;
+        char source='A';
+        char destination='C';
+        char auxillary='B';
+        SolveTower(n,source,destination,auxillary);
+    }
+}
