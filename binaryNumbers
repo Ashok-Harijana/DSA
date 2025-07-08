@@ -1,0 +1,15 @@
+import java.util.*;
+class main{
+    static void Gene(String cur,int remain){
+        if(remain ==0){
+            System.out.println(cur);
+            return;
+        }
+        Gene(cur+"0",(remain-1));
+        Gene(cur+"1", (remain-1));
+    }
+    public static void main(String[] args){
+        String cur = "";
+        Gene(cur,3);
+    }
+}
